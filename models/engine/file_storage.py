@@ -54,7 +54,7 @@ class FileStorage:
                 for key, v in dictionaryofdictionaries.items():
                     if v["__class__"] in classes:
                         self.__objects[key] = classes[v["__class__"]](**v)
-        except:
+        except ValueError:
             pass
 
     def reset(self):
