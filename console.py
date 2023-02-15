@@ -40,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
             b1 = eval(arglist[0])()
             b1.save()
             print(b1.id)
-        except:
+        except ValueError:
             print("** class doesn't exist **")
             return
 
@@ -53,7 +53,7 @@ class HBNBCommand(cmd.Cmd):
         arglist = parse(arg)
         try:
             b1 = eval(arglist[0])()
-        except:
+        except ValueError:
             print("** class doesn't exist **")
             return
         if len(arglist) == 1:
@@ -75,7 +75,7 @@ class HBNBCommand(cmd.Cmd):
         arglist = parse(arg)
         try:
             b1 = eval(arglist[0])()
-        except:
+        except ValueError:
             print("** class doesn't exist **")
             return
         if len(arglist) == 1:
@@ -105,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
             return
         try:
             model = eval(arglist[0])()
-        except:
+        except ValueError:
             print("** class doesn't exist **")
             return
         objlist = []
@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
             return
         try:
             model = eval(arglist[0])()
-        except:
+        except ValueError:
             print("** class doesn't exist **")
             return
         if len(arglist) == 1:
@@ -166,7 +166,7 @@ class HBNBCommand(cmd.Cmd):
         arglist = parse(arg)
         try:
             b1 = eval(arglist[0])()
-        except:
+        except ValueError:
             print("** class doesn't exist **")
             return
         objdict = storage.all()
@@ -230,7 +230,7 @@ def isint(string):
     try:
         int(string)
         return True
-    except:
+    except ValueError:
         return False
 
 
@@ -239,8 +239,9 @@ def isfloat(string):
     try:
         float(string)
         return True
-    except:
+    except ValueError:
         return False
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
