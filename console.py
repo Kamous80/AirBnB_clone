@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python4
 """This module is the entry point of the command interpreter"""
 import cmd
 import re
